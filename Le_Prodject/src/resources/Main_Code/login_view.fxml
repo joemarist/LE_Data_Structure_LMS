@@ -29,7 +29,7 @@
                         <Image url="@icons/lmsbackground.png" />
                     </image>
                     <effect>
-                        <DropShadow height="26.86" radius="20.2575" width="56.17" />
+                        <DropShadow height="41.52" radius="23.9225" width="56.17" />
                     </effect>
                 </ImageView>
             </children>

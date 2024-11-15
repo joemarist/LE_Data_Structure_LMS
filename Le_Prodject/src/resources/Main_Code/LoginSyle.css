@@ -23,6 +23,33 @@
     -fx-cursor: hand;
 
 }
+.closeb{
+    -fx-background-color:transparent;
+    -fx-cursor: hand;
+
+}
+
+.closeb:hover{
+
+    -fx-cursor: hand;
+
+}
+
+.tag {
+    -fx-background-color: #2c2c2c; /* Dark background */
+    -fx-shape: "M0,20 L30,0 L90,0 Q100,0 100,10 L100,30 Q100,40 90,40 L30,40 L0,20 Z"; /* Refined custom shape */
+    -fx-background-radius: 10px;
+}
+
+.tag:hover {
+    -fx-background-color: #ff3535;
+    -fx-cursor: hand;
+}
+
+
+
+
+
 
 .userButtoon{
 
@@ -44,3 +71,27 @@
 
 }
 
+
+
+
+
+
+.userBut{
+
+    -fx-background-color:#603f26;
+
+    -fx-background-radius: 40px;
+
+}
+
+.lincur{
+    
+    -fx-background-radius: 15px;
+
+}
+
+.userBut:hover{
+    -fx-background-color:#b23636;
+    -fx-cursor: hand;
+
+}
