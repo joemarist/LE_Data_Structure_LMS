@@ -1,0 +1,46 @@
+.mainframe{
+
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 5px;
+
+}
+
+.iconCB{
+
+    -fx-background-color: #ffeac5;
+    -fx-background-radius: 30px;
+
+}
+
+.close{
+    -fx-background-color:transparent;
+    -fx-cursor: hand;
+
+}
+
+.close:hover{
+    -fx-background-color:#ff3535;
+    -fx-cursor: hand;
+
+}
+
+.userButtoon{
+
+    -fx-background-color:#bfacac;
+
+    -fx-background-radius: 15px;
+
+}
+
+.userButtoon:hover{
+    -fx-background-color:#b3d7ce;
+    -fx-cursor: hand;
+
+}
+
+.frame:hover{
+    -fx-background-color:#b3d7ce;
+    -fx-cursor: hand;
+
+}
+
