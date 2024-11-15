@@ -19,8 +19,6 @@ public class LoginApplication extends Application {
         Stage.initStyle(StageStyle.TRANSPARENT);
         Stage.show();
         
-//ftsyduweawsgaufgiagdfuigasigauisgdfvgashdgviasbsuitsgtigtw9ygwgwtughsaihfisahdihsithiaushtgiashtuisahtie
-
 
 
 
