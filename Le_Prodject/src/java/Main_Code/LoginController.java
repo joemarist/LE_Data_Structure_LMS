@@ -10,6 +10,9 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.scene.image.ImageView;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+
 
 public class LoginController {
 
@@ -19,12 +22,49 @@ public class LoginController {
 
     @FXML
     private Button close;
+
     public void close(){
         System.exit(0);
     }
 
     @FXML
     private Button exit;
+
+    @FXML
+    private PasswordField passwordtextfield;
+
+    @FXML
+    private TextField passwordTextVisible;
+
+    @FXML
+    private Button passButton;
+
+    @FXML
+    private ImageView passwordIcon;
+
+    private boolean isPasswordVisible = false;
+
+    @FXML
+    public void togglePasswordVisibility() {
+        if (isPasswordVisible) {
+            // Hide plain text and show PasswordField
+            passwordTextVisible.setVisible(false);
+            passwordtextfield.setText(passwordTextVisible.getText());
+            passwordtextfield.setVisible(true);
+
+            // Update the icon (if you want to change the icon dynamically)
+            passwordIcon.setImage(new Image(getClass().getResourceAsStream("icons/passIconeyeshow.png")));
+        } else {
+            // Show plain text and hide PasswordField
+            passwordtextfield.setVisible(false);
+            passwordTextVisible.setText(passwordtextfield.getText());
+            passwordTextVisible.setVisible(true);
+
+            // Update the icon
+            passwordIcon.setImage(new Image(getClass().getResourceAsStream("icons/passIconeyehide.png")));
+        }
+        isPasswordVisible = !isPasswordVisible;
+    }
 
     public void switchLogin(ActionEvent event) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("login_view.fxml"));
@@ -42,24 +82,6 @@ public class LoginController {
         stage.show();
 
     }
-
-    @FXML
-
-    private ImageView passwordIcon;
-
-    @FXML
-    private Button passButton;
-
-    Image myImage = new Image(getClass().getResourceAsStream("icons/passIconeyehide.png"));
-
-
-    public void displayImage(){
-    passwordIcon.setImage(myImage);
-    }
-
-
-
-
 
 
 }

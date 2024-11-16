@@ -71,7 +71,7 @@
         </Button>
         <AnchorPane layoutX="312.0" layoutY="164.0" prefHeight="181.0" prefWidth="402.0">
             <children>
-                <Button fx:id="staffLog" layoutX="84.0" layoutY="29.0" mnemonicParsing="false" onAction="#switchStaff" prefHeight="109.0" prefWidth="296.0" styleClass="userButton" stylesheets="@styleFile/LoginSyle.css" text="Staff">
+                <Button fx:id="staffLog" layoutX="84.0" layoutY="29.0" mnemonicParsing="false" onAction="#switchStaff" prefHeight="109.0" prefWidth="296.0" styleClass="userButton" stylesheets="@styleFile/LoginSyle.css" text="       Staff">
                     <font>
                         <Font name="Agency FB Bold" size="51.0" />
                     </font>
