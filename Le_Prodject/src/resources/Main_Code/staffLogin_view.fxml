@@ -36,7 +36,7 @@
                   <Image url="@icons/interface-icon.png" />
                </image>
             </ImageView>
-            <Button fx:id="exit" layoutX="10.0" layoutY="-1.0" mnemonicParsing="false" onAction="#switchLogin" prefHeight="14.0" prefWidth="25.0" styleClass="closeb" stylesheets="@LoginSyle.css" />
+            <Button fx:id="exit" layoutX="10.0" layoutY="-1.0" mnemonicParsing="false" onAction="#switchLogin" prefHeight="14.0" prefWidth="25.0" styleClass="closeB" stylesheets="@LoginSyle.css" />
          </children>
       </AnchorPane>
       <Label layoutX="540.0" layoutY="69.0" prefHeight="62.0" prefWidth="98.0" text="Login">

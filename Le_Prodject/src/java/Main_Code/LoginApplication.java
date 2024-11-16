@@ -12,22 +12,12 @@ public class LoginApplication extends Application {
     @Override
     public void start(Stage Stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("login_view.fxml"));
-
         Scene scene = new Scene(root);
         Stage.setScene(scene);
         Stage.setTitle("LMS!");
         Stage.initStyle(StageStyle.TRANSPARENT);
         Stage.show();
-        
-
-
-
     }
-
-
-
-
-
 
     public static void main(String[] args) {
         launch();

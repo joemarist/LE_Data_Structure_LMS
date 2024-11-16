@@ -56,16 +56,7 @@ public class LoginController {
         stage.setScene(scene);
         stage.show();
 
-
     }
-
-
-
-
-
-
-
-
 
 }
 
