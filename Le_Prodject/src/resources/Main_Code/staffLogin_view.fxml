@@ -2,6 +2,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.BoxBlur?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -67,5 +69,15 @@
       </ImageView>
       <Line endX="131.8291015625" endY="-8.78497314453125" layoutX="354.0" layoutY="198.0" startX="131.8291015625" startY="-38.78497314453125" stroke="#818080" strokeLineCap="ROUND" strokeWidth="4.0" />
       <Line endX="131.8291015625" endY="-8.78497314453125" layoutX="354.0" layoutY="277.0" startX="131.8291015625" startY="-38.78497314453125" stroke="#818080" strokeLineCap="ROUND" strokeWidth="4.0" />
+      <PasswordField layoutX="493.0" layoutY="231.0" prefHeight="40.0" prefWidth="189.0" promptText="Password" styleClass="textFrame" stylesheets="@staffLogin.css">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </PasswordField>
+      <TextField layoutX="494.0" layoutY="153.0" prefHeight="40.0" prefWidth="219.0" promptText="Staff Id" styleClass="textFrame" stylesheets="@staffLogin.css">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>
