@@ -69,7 +69,7 @@
             <URL value="@styleFile/LoginSyle.css" />
          </stylesheets>
       </Button>
-      <Line endX="170.92486572265625" endY="1.52587890625E-5" layoutX="638.0" layoutY="255.0" startX="-145.2003173828125" startY="1.52587890625E-5" stroke="#818080" strokeWidth="2.0" />
+      <Line endX="190.9998779296875" endY="1.52587890625E-5" layoutX="638.0" layoutY="255.0" startX="-145.2003173828125" startY="1.52587890625E-5" stroke="#818080" strokeWidth="2.0" />
       <ImageView fitHeight="30.0" fitWidth="58.0" layoutX="825.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/stafficons.png" />
@@ -101,18 +101,18 @@
             <URL value="@styleFile/staffLogin.css" />
          </stylesheets>
       </TextField>
-      <Line endX="170.92486572265625" endY="1.52587890625E-5" layoutX="637.0" layoutY="356.0" startX="-145.2003173828125" startY="1.52587890625E-5" stroke="#818080" strokeWidth="2.0" />
+      <Line endX="190.4998779296875" layoutX="637.0" layoutY="356.0" startX="-145.2003173828125" startY="1.52587890625E-5" stroke="#818080" strokeWidth="2.0" />
       <Label layoutX="512.0" layoutY="362.0" prefHeight="26.0" prefWidth="200.0" text="Don’t have a account ?" textFill="#818080">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
       <Line endX="49.0" endY="1.52587890625E-5" layoutX="718.0" layoutY="390.0" startX="-23.1668701171875" startY="3.0517578125E-5" stroke="#6517ed" strokeWidth="2.0" />
-      <Button fx:id="passButton" layoutX="775.0" layoutY="315.0" mnemonicParsing="false" onAction="#displayImage" prefHeight="26.0" prefWidth="22.0" styleClass="closeB" stylesheets="@styleFile/LoginSyle.css">
+      <Button fx:id="passButton" layoutX="787.0" layoutY="306.0" mnemonicParsing="false" onAction="#displayImage" prefHeight="26.0" prefWidth="42.0" styleClass="closeB" stylesheets="@styleFile/LoginSyle.css">
          <graphic>
-            <ImageView fx:id="passwordIcon" fitHeight="18.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="passwordIcon" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@icons/passIconeye.png" />
+                  <Image url="@icons/passIconeyehides.png" />
                </image>
             </ImageView>
          </graphic>
