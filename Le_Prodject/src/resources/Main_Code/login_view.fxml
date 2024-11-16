@@ -113,5 +113,6 @@
                 </AnchorPane>
             </children>
         </AnchorPane>
+      <Label layoutX="470.0" layoutY="555.0" prefHeight="31.0" prefWidth="76.0" styleClass="loader" stylesheets="@styleFile/staffLogin.css" />
     </children>
 </AnchorPane>
