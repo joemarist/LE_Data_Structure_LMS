@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="823.0" styleClass="mainframe" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main_Code.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="970.0" styleClass="mainframe" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main_Code.LoginController">
    <children>
       <AnchorPane layoutX="-88.0" layoutY="-164.0" prefHeight="674.0" prefWidth="453.0" rotate="14.0" styleClass="iconCB">
          <children>
@@ -89,23 +89,15 @@
       </ImageView>
       <Line endX="131.8291015625" endY="-8.78497314453125" layoutX="354.0" layoutY="198.0" startX="131.8291015625" startY="-38.78497314453125" stroke="#818080" strokeLineCap="ROUND" strokeWidth="4.0" />
       <Line endX="131.8291015625" endY="-8.78497314453125" layoutX="354.0" layoutY="277.0" startX="131.8291015625" startY="-38.78497314453125" stroke="#818080" strokeLineCap="ROUND" strokeWidth="4.0" />
-      <PasswordField layoutX="493.0" layoutY="231.0" prefHeight="40.0" prefWidth="189.0" promptText="Password" styleClass="textFrame">
+      <PasswordField layoutX="493.0" layoutY="231.0" prefHeight="40.0" prefWidth="189.0" promptText="Password" styleClass="textFrame" stylesheets="@styleFile/staffLogin.css">
          <font>
             <Font size="18.0" />
          </font>
-         <stylesheets>
-            <URL value="@staffLogin.css" />
-            <URL value="@styleFile/staffLogin.css" />
-         </stylesheets>
       </PasswordField>
-      <TextField layoutX="494.0" layoutY="153.0" prefHeight="40.0" prefWidth="219.0" promptText="Staff Id" styleClass="textFrame">
+      <TextField layoutX="494.0" layoutY="153.0" prefHeight="40.0" prefWidth="219.0" promptText="Staff Id" styleClass="textFrame" stylesheets="@styleFile/staffLogin.css">
          <font>
             <Font size="18.0" />
          </font>
-         <stylesheets>
-            <URL value="@staffLogin.css" />
-            <URL value="@styleFile/staffLogin.css" />
-         </stylesheets>
       </TextField>
    </children>
    <stylesheets>
