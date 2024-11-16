@@ -93,7 +93,7 @@
         </AnchorPane>
         <AnchorPane layoutX="312.0" layoutY="383.0" prefHeight="159.0" prefWidth="391.0">
             <children>
-                <Button fx:id="userLog" layoutX="84.0" layoutY="22.0" mnemonicParsing="false" onAction="#switchUser" prefHeight="116.0" prefWidth="296.0" styleClass="userButton" stylesheets="@styleFile/LoginSyle.css" text="       Students">
+                <Button fx:id="userLog" layoutX="84.0" layoutY="22.0" mnemonicParsing="false" prefHeight="116.0" prefWidth="296.0" styleClass="userButton" stylesheets="@styleFile/LoginSyle.css" text="       Students">
                     <font>
                         <Font name="Agency FB Bold" size="51.0" />
                     </font>

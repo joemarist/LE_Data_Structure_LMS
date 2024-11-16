@@ -7,7 +7,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.scene.image.ImageView;
 
 public class LoginController {
 
@@ -40,6 +42,23 @@ public class LoginController {
         stage.show();
 
     }
+
+    @FXML
+
+    private ImageView passwordIcon;
+
+    @FXML
+    private Button passButton;
+
+    Image myImage = new Image(getClass().getResourceAsStream("icons/passIconeyehide.png"));
+
+
+    public void displayImage(){
+    passwordIcon.setImage(myImage);
+    }
+
+
+
 
 
 
