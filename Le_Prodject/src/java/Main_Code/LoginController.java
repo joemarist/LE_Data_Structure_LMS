@@ -9,23 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-import javafx.animation.Interpolator;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
-
-
-
-
-
-
-
-
-import javafx.scene.layout.StackPane;
-import javafx.util.Duration;
-
-
-
 public class LoginController {
 
     private Stage stage;
@@ -51,6 +34,15 @@ public class LoginController {
 
     public void switchStaff(ActionEvent event) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("staffLogin_view.fxml"));
+        stage =(Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+    public void switchUser(ActionEvent event) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("userLogin_view.fxml"));
         stage =(Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
