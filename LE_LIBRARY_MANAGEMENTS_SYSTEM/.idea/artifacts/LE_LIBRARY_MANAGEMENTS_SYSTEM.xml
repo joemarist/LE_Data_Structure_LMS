@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="LE_LIBRARY_MANAGEMENTS_SYSTEM">
+    <output-path>$USER_HOME$/Desktop</output-path>
+    <root id="root">
+      <element id="archive" name="LE_LIBRARY_MANAGEMENTS_SYSTEM.jar">
+        <element id="module-output" name="LE_LIBRARY_MANAGEMENTS_SYSTEM" />
+      </element>
+    </root>
+  </artifact>
+</component>
