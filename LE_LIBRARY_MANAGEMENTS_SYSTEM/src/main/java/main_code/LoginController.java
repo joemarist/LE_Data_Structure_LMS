@@ -20,6 +20,11 @@ import java.io.IOException;
 
 public class LoginController {
 
+
+
+
+
+
     @FXML
     private AnchorPane adminside;
 
@@ -34,6 +39,9 @@ public class LoginController {
 
     @FXML
     private AnchorPane sidedoor;
+
+    @FXML
+    private AnchorPane loginRoot;
 
     @FXML
     private Button staffLog;
@@ -148,7 +156,6 @@ public class LoginController {
     public void switchUser(ActionEvent event)throws IOException  {
         // Load the new scene
         Parent root = FXMLLoader.load(getClass().getResource("userLogin_view.fxml"));
-
         // Get the current scene and its width
         Scene currentScene = ((Node) event.getSource()).getScene();
         double sceneWidth = currentScene.getWidth();
@@ -176,53 +183,78 @@ public class LoginController {
         timeline.play();
     }
 
+
+
+
+
+
+
+
+
+    public int path = 0; // Instance-level variable
+
+    // Getter for path
+    public int getPath() {
+        return path;
+    }
+
+    // Setter for path
+    public void setPath(int path) {
+        this.path = path;
+    }
+
+    public void adminPath(){
+        path = 0;
+    }
+
+    public void loginPath(){
+        path = 1;
+    }
+
     @FXML
     void adminLogin(KeyEvent event) throws IOException {
-        // Load the new scene (adminLogin_view.fxml)
-        Parent root = FXMLLoader.load(getClass().getResource("adminLogin_view.fxml"));
+         // Use the setter to set path to "adminLogin"
 
-        // Access the parent container directly (from controller)
-        AnchorPane pContainer = this.pContainer;  // Using the pContainer from the controller
+        // Load the new scene (admin login view)
+        Parent newRoot = FXMLLoader.load(getClass().getResource("adminLogin_view.fxml"));
 
-        // Set the initial position of the new root off-screen to the left (or right, depending on your preference)
-        root.translateXProperty().set(-pContainer.getWidth()); // Start off-screen
+        // Set the initial position of the new root off-screen (to the left)
+        newRoot.translateXProperty().set(-pContainer.getWidth());
 
         // Add the new root to the parent container
-        pContainer.getChildren().add(root);
+        pContainer.getChildren().add(newRoot);
 
-        // Create a timeline animation for sliding the new scene
-        Timeline slideTimeline = new Timeline();
-        KeyValue slideIn = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_BOTH); // Smooth slide to center
-        KeyFrame slideKeyFrame = new KeyFrame(Duration.seconds(0.6), slideIn); // Slide in smoothly
-        slideTimeline.getKeyFrames().add(slideKeyFrame);
+        // Create timeline animations for both scenes
+        Timeline timeline = new Timeline();
 
-        // Create a fade-in effect
-        FadeTransition fadeIn = new FadeTransition(Duration.seconds(1.0), root);
-        fadeIn.setFromValue(0);  // Start fully transparent
-        fadeIn.setToValue(1);    // Fade in to fully opaque
-        fadeIn.setInterpolator(Interpolator.EASE_BOTH);
+        // Animation to slide out the current scene (move it to the right)
+        Node currentScene = pContainer.getChildren().get(0); // Assuming the first child is the current scene
+        KeyValue slideOutCurrent = new KeyValue(currentScene.translateXProperty(), pContainer.getWidth(), Interpolator.EASE_BOTH);
 
-        // When the slide and fade animations finish, remove the old scene
-        slideTimeline.setOnFinished(t -> {
-            pContainer.getChildren().remove(container); // Removes the old scene/container
+        // Animation to slide in the new scene (move it to the center)
+        KeyValue slideInNew = new KeyValue(newRoot.translateXProperty(), 0, Interpolator.EASE_BOTH);
+
+        // Combine both animations into a single timeline
+        KeyFrame keyFrame = new KeyFrame(Duration.seconds(0.6), slideOutCurrent, slideInNew);
+        timeline.getKeyFrames().add(keyFrame);
+
+        // Remove the old scene once the animation is complete
+        timeline.setOnFinished(t -> {
+            pContainer.getChildren().remove(currentScene);
         });
 
-        // Play both animations simultaneously
-        slideTimeline.play();
+        // Play the timeline
+        timeline.play();
 
+        // After the transition is done, update path to "login"
+        setPath(0); // Use the setter to update path to "login"
     }
 
-
-
-
-@FXML
-    public void initialize() {
-        System.out.println("pContainer: " + pContainer);  // Check if it's null
-    }
     @FXML
     public void switchLogins(ActionEvent event) throws IOException {
-        // Load the new scene's root node
+        loginPath();
         Parent root = FXMLLoader.load(getClass().getResource("login_view.fxml"));
+
 
         // Get the current scene and its width
         Scene scene = exit.getScene();
@@ -259,7 +291,37 @@ public class LoginController {
 
         // Play the animation
         timeline.play();
+
     }
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+@FXML
+    public void initialize() {
+        System.out.println("pContainer: " + pContainer);  // Check if it's null
+    }
+
 
 
 }

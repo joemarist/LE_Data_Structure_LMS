@@ -110,7 +110,7 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </ImageView>
-            <Button fx:id="exit" layoutX="1.0" layoutY="-1.0" mnemonicParsing="false" onAction="#switchLogins" prefHeight="25.0" prefWidth="34.0" styleClass="closeB">
+            <Button fx:id="exit" layoutX="1.0" layoutY="-1.0" mnemonicParsing="false" onAction="#switchLogins" onMouseClicked="#adminPath" prefHeight="25.0" prefWidth="34.0" styleClass="closeB">
                <stylesheets>
                   <URL value="@styleFile/LoginSyle.css" />
                   <URL value="@styleFile/LoginSyle.css" />
