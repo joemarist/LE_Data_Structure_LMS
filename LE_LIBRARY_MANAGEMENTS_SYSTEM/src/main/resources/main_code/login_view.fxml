@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.BoxBlur?>
@@ -17,58 +18,11 @@
                 <Font name="System Bold" size="40.0" />
             </font>
         </Label>
-        <AnchorPane fx:id="sidedoor" layoutX="-341.0" layoutY="-171.0" prefHeight="891.0" prefWidth="512.0" rotate="14.0" stylesheets="@styleFile/LoginSyle.css">
-            <styleClass>
-                <String fx:value="staffCB" />
-                <String fx:value="iconCB" />
-            </styleClass>
-            <children>
-                <ImageView fitHeight="792.0" fitWidth="516.0" layoutX="-32.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@icons/lmsbackground.png" />
-                    </image>
-                    <effect>
-                        <DropShadow height="41.52" radius="23.9225" width="56.17" />
-                    </effect>
-                </ImageView>
-            </children>
-            <effect>
-                <BoxBlur width="0.0" />
-            </effect>
-        </AnchorPane>
-        <AnchorPane layoutX="793.0" layoutY="-42.0" prefHeight="821.0" prefWidth="459.0" rotate="14.0" stylesheets="@styleFile/LoginSyle.css">
-            <styleClass>
-                <String fx:value="staffCB" />
-                <String fx:value="iconCB" />
-            </styleClass>
-            <children>
-                <ImageView fitHeight="747.0" fitWidth="576.0" layoutX="29.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@icons/lmsbackground.png" />
-                    </image>
-                    <effect>
-                        <DropShadow height="26.86" radius="20.2575" width="56.17" />
-                    </effect>
-                </ImageView>
-            </children>
-            <effect>
-                <BoxBlur width="0.0" />
-            </effect>
-        </AnchorPane>
         <ImageView fitHeight="31.0" fitWidth="32.0" layoutX="240.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@icons/icon_LMS.png" />
             </image>
         </ImageView>
-        <Button fx:id="close" layoutX="922.0" layoutY="20.0" mnemonicParsing="false" onAction="#close" prefHeight="25.0" prefWidth="22.0" styleClass="close" stylesheets="@styleFile/LoginSyle.css">
-            <graphic>
-                <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true" styleClass="close">
-                    <image>
-                        <Image url="@icons/interface-icon.png" />
-                    </image>
-                </ImageView>
-            </graphic>
-        </Button>
         <AnchorPane layoutX="312.0" layoutY="164.0" prefHeight="181.0" prefWidth="402.0">
             <children>
                 <Button fx:id="staffLog" layoutX="84.0" layoutY="29.0" mnemonicParsing="false" onAction="#switchStaff" prefHeight="109.0" prefWidth="296.0" styleClass="userButton" stylesheets="@styleFile/LoginSyle.css" text="       Staff">
@@ -114,5 +68,50 @@
             </children>
         </AnchorPane>
       <Label layoutX="470.0" layoutY="555.0" prefHeight="31.0" prefWidth="76.0" styleClass="loader" stylesheets="@styleFile/staffLogin.css" />
+      <AnchorPane fx:id="sidedoor" layoutX="847.0" layoutY="-43.0" prefHeight="706.0" prefWidth="494.0" styleClass="iconCB">
+         <children>
+            <ImageView fitHeight="678.0" fitWidth="444.0" layoutX="27.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/lmsbackground.png" />
+               </image>
+               <effect>
+                  <DropShadow height="41.52" radius="23.9225" width="56.17" />
+               </effect>
+            </ImageView>
+         </children>
+         <effect>
+            <BoxBlur height="0.0" width="1.0" />
+         </effect>
+         <stylesheets>
+            <URL value="@styleFile/LoginSyle.css" />
+         </stylesheets>
+      </AnchorPane>
+        <Button fx:id="close" layoutX="922.0" layoutY="20.0" mnemonicParsing="false" onAction="#close" prefHeight="25.0" prefWidth="22.0" styleClass="close" stylesheets="@styleFile/LoginSyle.css">
+            <graphic>
+                <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true" styleClass="close">
+                    <image>
+                        <Image url="@icons/interface-icon.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+      <AnchorPane fx:id="sidedoor1" layoutX="-281.0" layoutY="-45.0" prefHeight="706.0" prefWidth="494.0" styleClass="iconCB">
+         <children>
+            <ImageView fitHeight="678.0" fitWidth="444.0" layoutX="27.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/lmsbackground.png" />
+               </image>
+               <effect>
+                  <DropShadow height="41.52" radius="23.9225" width="56.17" />
+               </effect>
+            </ImageView>
+         </children>
+         <effect>
+            <BoxBlur height="0.0" width="1.0" />
+         </effect>
+         <stylesheets>
+            <URL value="@styleFile/LoginSyle.css" />
+         </stylesheets>
+      </AnchorPane>
     </children>
 </AnchorPane>

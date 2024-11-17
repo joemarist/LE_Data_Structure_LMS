@@ -1,11 +1,9 @@
 package main_code;
+
 import javafx.animation.FadeTransition;
+import javafx.animation.TranslateTransition;
 import javafx.util.Duration;
 import javafx.animation.Interpolator;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -18,8 +16,9 @@ import javafx.stage.Stage;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.util.Duration;
+import javafx.event.ActionEvent;
 
+import java.io.IOException;
 
 public class LoginController {
 
@@ -30,7 +29,7 @@ public class LoginController {
     @FXML
     private Button close;
 
-    public void close(){
+    public void close() {
         System.exit(0);
     }
 
@@ -58,6 +57,9 @@ public class LoginController {
     private boolean isPasswordVisible = false;
 
     @FXML
+    private AnchorPane sidedoor;
+
+    @FXML
     public void togglePasswordVisibility() {
         if (isPasswordVisible) {
             // Hide plain text and show PasswordField
@@ -65,7 +67,7 @@ public class LoginController {
             passwordtextfield.setText(passwordTextVisible.getText());
             passwordtextfield.setVisible(true);
 
-            // Update the icon (if you want to change the icon dynamically)
+            // Update the icon
             passwordIcon.setImage(new Image(getClass().getResourceAsStream("icons/passIconeyeshow.png")));
         } else {
             // Show plain text and hide PasswordField
@@ -81,90 +83,51 @@ public class LoginController {
 
 
 
+    private void slidePaneToRight() {
+        TranslateTransition slide = new TranslateTransition(Duration.millis(500), sidedoor);
+        slide.setByX(sidedoor.getWidth()); // Slide to the right
+        slide.setInterpolator(Interpolator.EASE_BOTH); // Smooth animation
+        slide.play();
 
-
-
-
-
-
-
-
-
-
-    @FXML
-    private AnchorPane sidedoor;
-
-
-
-
-
-
-
-
+        // Add a listener to execute actions after the slide is complete
+        slide.setOnFinished(event -> {
+            // Get the current stage and scene
+            Stage stage = (Stage) sidedoor.getScene().getWindow();
+            try {
+                Parent newRoot = FXMLLoader.load(getClass().getResource("login_view.fxml"));
+                Scene newScene = new Scene(newRoot);
+                stage.setScene(newScene);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
 
     public void switchLogin(ActionEvent event) throws Exception {
-        // Get the current stage and scene
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Parent newRoot = FXMLLoader.load(getClass().getResource("login_view.fxml"));
-
-        // Create a fade-out transition for the current scene
-        Scene currentScene = stage.getScene();
-        FadeTransition fadeOut = new FadeTransition(Duration.millis(500), currentScene.getRoot());
-        fadeOut.setFromValue(1.0);
-        fadeOut.setToValue(0.0);
-
-        // Set the on-finished event to load the new scene after fade-out
-        fadeOut.setOnFinished(e -> {
-            // Set the new scene
-            Scene newScene = new Scene(newRoot);
-            stage.setScene(newScene);
-
-            // Create a fade-in transition for the new scene
-            FadeTransition fadeIn = new FadeTransition(Duration.millis(500), newRoot);
-            fadeIn.setFromValue(0.0);
-            fadeIn.setToValue(1.0);
-            fadeIn.play();
-        });
-
-        // Play the fade-out transition
-        fadeOut.play();
+        slidePaneToRight(); // Slide sidedoor to the right
     }
 
+    private void slidePaneToLeft() {
+        TranslateTransition slide = new TranslateTransition(Duration.millis(500), sidedoor);
+        slide.setByX(-sidedoor.getWidth()); // Slide to the left
+        slide.setInterpolator(Interpolator.EASE_BOTH);
+        slide.play();
 
-
-
+        // Add a listener to execute actions after the slide is complete
+        slide.setOnFinished(event -> {
+            // Get the current stage and scene
+            Stage stage = (Stage) sidedoor.getScene().getWindow();
+            try {
+                Parent newRoot = FXMLLoader.load(getClass().getResource("staffLogin_view.fxml"));
+                Scene newScene = new Scene(newRoot);
+                stage.setScene(newScene);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
 
     public void switchStaff(ActionEvent event) throws Exception {
-        // Get the current stage and scene
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Parent newRoot = FXMLLoader.load(getClass().getResource("staffLogin_view.fxml"));
-
-        // Create a fade-out transition for the current scene
-        Scene currentScene = stage.getScene();
-        FadeTransition fadeOut = new FadeTransition(Duration.millis(500), currentScene.getRoot());
-        fadeOut.setFromValue(1.0);
-        fadeOut.setToValue(0.0);
-
-        // Set the on-finished event to load the new scene after fade-out
-        fadeOut.setOnFinished(e -> {
-            // Set the new scene
-            Scene newScene = new Scene(newRoot);
-            stage.setScene(newScene);
-
-            // Create a fade-in transition for the new scene
-            FadeTransition fadeIn = new FadeTransition(Duration.millis(500), newRoot);
-            fadeIn.setFromValue(0.0);
-            fadeIn.setToValue(1.0);
-            fadeIn.play();
-        });
-
-        // Play the fade-out transition
-        fadeOut.play();
+        slidePaneToLeft(); // Slide sidedoor to the left
     }
-
-
-
-
 }
-
-

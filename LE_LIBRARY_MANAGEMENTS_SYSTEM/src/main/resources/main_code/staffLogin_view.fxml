@@ -21,24 +21,6 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </TextField>
-      <AnchorPane fx:id="sidedoor" layoutY="-152.0" prefHeight="813.0" prefWidth="425.0" rotate="14.0" styleClass="iconCB">
-         <children>
-            <ImageView fitHeight="706.0" fitWidth="486.0" layoutX="-84.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@icons/lmsbackground.png" />
-               </image>
-               <effect>
-                  <DropShadow height="41.52" radius="23.9225" width="56.17" />
-               </effect>
-            </ImageView>
-         </children>
-         <effect>
-            <BoxBlur height="0.0" width="1.0" />
-         </effect>
-         <stylesheets>
-            <URL value="@styleFile/LoginSyle.css" />
-         </stylesheets>
-      </AnchorPane>
       <AnchorPane layoutX="921.0" layoutY="13.0" minHeight="17.0" minWidth="26.0" onMouseClicked="#switchLogin" prefHeight="24.0" prefWidth="36.0" styleClass="tag" stylesheets="@styleFile/LoginSyle.css">
          <children>
             <ImageView fitHeight="11.0" fitWidth="11.0" layoutX="16.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
@@ -134,6 +116,24 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
+      <AnchorPane fx:id="sidedoor" layoutX="-111.0" layoutY="-33.0" prefHeight="706.0" prefWidth="494.0" styleClass="iconCB">
+         <children>
+            <ImageView fitHeight="678.0" fitWidth="444.0" layoutX="27.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/lmsbackground.png" />
+               </image>
+               <effect>
+                  <DropShadow height="41.52" radius="23.9225" width="56.17" />
+               </effect>
+            </ImageView>
+         </children>
+         <effect>
+            <BoxBlur height="0.0" width="1.0" />
+         </effect>
+         <stylesheets>
+            <URL value="@styleFile/LoginSyle.css" />
+         </stylesheets>
+      </AnchorPane>
    </children>
    <stylesheets>
       <URL value="@styleFile/LoginSyle.css" />
