@@ -1,9 +1,8 @@
 package main_code;
 
-import javafx.animation.FadeTransition;
-import javafx.animation.TranslateTransition;
+import javafx.animation.*;
+import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
-import javafx.animation.Interpolator;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -19,6 +18,8 @@ import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class LoginController {
 
@@ -56,8 +57,6 @@ public class LoginController {
 
     private boolean isPasswordVisible = false;
 
-
-
     @FXML
     public void togglePasswordVisibility() {
         if (isPasswordVisible) {
@@ -79,77 +78,99 @@ public class LoginController {
         }
         isPasswordVisible = !isPasswordVisible;
     }
-
-
-
-
-
-
-
-
+    @FXML
+    private AnchorPane pContainer;
 
 
     @FXML
-    private AnchorPane setframe;
+    private void switchLogin(ActionEvent event) throws IOException {
+        // Load the new scene (scene1.fxml)
+        Parent root = FXMLLoader.load(getClass().getResource("login_view.fxml"));
 
-    @FXML
-    private AnchorPane sidedoor;
+        // Get the current scene and set the initial position of the new root
+        Scene scene = exit.getScene();
+        root.translateXProperty().set(-scene.getWidth()); // Start outside the left edge
 
+        // Get the parent container (assumes StackPane is the root)
+        AnchorPane pContainer = (AnchorPane) exit.getScene().getRoot();
 
+        // Add the new root to the parent container
+        pContainer.getChildren().add(root);
 
+        // Create a timeline animation for sliding from left to right
+        Timeline timeline = new Timeline();
+        KeyValue kv = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_BOTH); // Smooth slide to center
+        KeyFrame kf = new KeyFrame(Duration.seconds(0.6), kv); // Slightly faster and smoother
+        timeline.getKeyFrames().add(kf);
 
-
-
-
-    private void slideOutAndSwitch(String fxmlFile, Node slidingPane, Node currentNode, boolean slideLeft) {
-        // Get the width of the slidingPane
-        double paneWidth = slidingPane.getLayoutBounds().getWidth();
-
-        // Create a slide-out transition
-        TranslateTransition slideOut = new TranslateTransition(Duration.millis(500), slidingPane);
-        slideOut.setByX(slideLeft ? -paneWidth : paneWidth); // Slide left or right based on direction
-        slideOut.setInterpolator(Interpolator.EASE_BOTH);
-
-        // Create a fade-out effect for the sliding pane
-        FadeTransition fadeOut = new FadeTransition(Duration.millis(500), slidingPane);
-        fadeOut.setToValue(0); // Fade out to transparency
-
-        // Play both transitions together
-        slideOut.setOnFinished(event -> {
-            try {
-                // Set the sliding pane to its final position (off-screen)
-                slidingPane.setTranslateX(slideLeft ? -paneWidth : paneWidth);
-
-                // Make `setframe` visible with a fade-in effect
-                setframe.setVisible(true);
-                FadeTransition fadeIn = new FadeTransition(Duration.millis(500), setframe);
-                fadeIn.setFromValue(0); // Start fully transparent
-                fadeIn.setToValue(1);   // End fully opaque
-                fadeIn.play();
-
-                // Optionally load the new scene (if required)
-                Parent newRoot = FXMLLoader.load(getClass().getResource(fxmlFile));
-                Scene newScene = new Scene(newRoot);
-                Stage stage = (Stage) currentNode.getScene().getWindow();
-                stage.setScene(newScene);
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        // Remove the old scene after the animation completes
+        timeline.setOnFinished(t -> {
+            pContainer.getChildren().remove(container);
         });
 
-        // Play both slide and fade animations
-        slideOut.play();
-        fadeOut.play();
+        // Play the animation
+        timeline.play();
     }
 
-    @FXML
-    public void switchLogin(ActionEvent event) {
-        slideOutAndSwitch("login_view.fxml", sidedoor, container, false); // Slide out to the right
+    public void switchStaff(ActionEvent event)throws IOException  {
+        // Load the new scene
+        Parent root = FXMLLoader.load(getClass().getResource("staffLogin_view.fxml"));
+
+        // Get the current scene and its width
+        Scene currentScene = ((Node) event.getSource()).getScene();
+        double sceneWidth = currentScene.getWidth();
+
+        // Add the new scene to the container
+        root.translateXProperty().set(sceneWidth); // Start new scene off-screen to the right
+        pContainer.getChildren().add(root); // Assuming pContainer is an AnchorPane
+
+        // Create the animation timeline
+        Timeline timeline = new Timeline();
+
+        // Animate the new scene sliding in
+        KeyValue kvIn = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_BOTH); // Smooth slide to center
+        KeyFrame kfIn = new KeyFrame(Duration.seconds(0.6), kvIn); // Slightly faster and smoother
+        timeline.getKeyFrames().add(kfIn);
+
+        // When the animation finishes
+        timeline.setOnFinished(t -> {
+            // Remove the old scene from the container
+            Node container = pContainer.getChildren().get(0); // First child is the current scene
+            pContainer.getChildren().remove(container); // Remove old scene
+        });
+
+        // Play the animation
+        timeline.play();
     }
 
-    @FXML
-    public void switchStaff(ActionEvent event) {
-        slideOutAndSwitch("staffLogin_view.fxml", sidedoor, container, true); // Slide out to the left
+    public void switchUser(ActionEvent event)throws IOException  {
+        // Load the new scene
+        Parent root = FXMLLoader.load(getClass().getResource("userLogin_view.fxml"));
+
+        // Get the current scene and its width
+        Scene currentScene = ((Node) event.getSource()).getScene();
+        double sceneWidth = currentScene.getWidth();
+
+        // Add the new scene to the container
+        root.translateXProperty().set(sceneWidth); // Start new scene off-screen to the right
+        pContainer.getChildren().add(root); // Assuming pContainer is an AnchorPane
+
+        // Create the animation timeline
+        Timeline timeline = new Timeline();
+
+        // Animate the new scene sliding in
+        KeyValue kvIn = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_BOTH); // Smooth slide to center
+        KeyFrame kfIn = new KeyFrame(Duration.seconds(0.6), kvIn); // Slightly faster and smoother
+        timeline.getKeyFrames().add(kfIn);
+
+        // When the animation finishes
+        timeline.setOnFinished(t -> {
+            // Remove the old scene from the container
+            Node container = pContainer.getChildren().get(0); // First child is the current scene
+            pContainer.getChildren().remove(container); // Remove old scene
+        });
+
+        // Play the animation
+        timeline.play();
     }
 }

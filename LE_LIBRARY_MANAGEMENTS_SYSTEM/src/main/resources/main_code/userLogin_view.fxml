@@ -23,11 +23,6 @@
                   <Image url="@icons/susericon.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="30.0" fitWidth="58.0" layoutX="378.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@icons/stafficons.png" />
-               </image>
-            </ImageView>
             <Line endX="49.0" endY="1.52587890625E-5" layoutX="222.0" layoutY="102.0" startX="-57.50421142578125" startY="1.52587890625E-5" stroke="#6517ed" strokeWidth="2.0" />
             <Label layoutX="169.0" layoutY="42.0" prefHeight="62.0" prefWidth="98.0" text="Login">
                <font>
@@ -71,7 +66,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <TextField layoutX="105.0" layoutY="164.0" prefHeight="40.0" prefWidth="257.0" promptText="Staff Id" styleClass="textFrame">
+            <TextField layoutX="105.0" layoutY="164.0" prefHeight="40.0" prefWidth="257.0" promptText="Student Id" styleClass="textFrame">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
