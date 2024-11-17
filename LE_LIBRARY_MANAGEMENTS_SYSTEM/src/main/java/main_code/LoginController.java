@@ -56,8 +56,7 @@ public class LoginController {
 
     private boolean isPasswordVisible = false;
 
-    @FXML
-    private AnchorPane sidedoor;
+
 
     @FXML
     public void togglePasswordVisibility() {
@@ -83,51 +82,62 @@ public class LoginController {
 
 
 
-    private void slidePaneToRight() {
-        TranslateTransition slide = new TranslateTransition(Duration.millis(500), sidedoor);
-        slide.setByX(sidedoor.getWidth()); // Slide to the right
-        slide.setInterpolator(Interpolator.EASE_BOTH); // Smooth animation
-        slide.play();
 
-        // Add a listener to execute actions after the slide is complete
-        slide.setOnFinished(event -> {
-            // Get the current stage and scene
-            Stage stage = (Stage) sidedoor.getScene().getWindow();
+
+
+
+
+
+
+    @FXML
+    private AnchorPane setframe;
+
+    @FXML
+    private AnchorPane sidedoor;
+
+
+
+
+
+
+
+    private void slideOutAndSwitch(String fxmlFile, Node slidingPane, Node currentNode, boolean slideLeft) {
+        // Use layout bounds to get the width of the slidingPane
+        double paneWidth = slidingPane.getLayoutBounds().getWidth();
+
+        // Create a slide-out transition
+        TranslateTransition slideOut = new TranslateTransition(Duration.millis(500), slidingPane);
+        slideOut.setByX(slideLeft ? -paneWidth : paneWidth); // Slide left or right based on the direction
+        slideOut.setInterpolator(Interpolator.EASE_BOTH);
+
+        // Set an event listener for after the slide finishes
+        slideOut.setOnFinished(event -> {
             try {
-                Parent newRoot = FXMLLoader.load(getClass().getResource("login_view.fxml"));
+                // Load the new FXML file
+                Parent newRoot = FXMLLoader.load(getClass().getResource(fxmlFile));
+
+                // Get the current stage
+                Stage stage = (Stage) currentNode.getScene().getWindow();
+
+                // Set the new scene
                 Scene newScene = new Scene(newRoot);
                 stage.setScene(newScene);
-            } catch (Exception e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         });
+
+        // Play the slide-out animation
+        slideOut.play();
     }
 
-    public void switchLogin(ActionEvent event) throws Exception {
-        slidePaneToRight(); // Slide sidedoor to the right
+    @FXML
+    public void switchLogin(ActionEvent event) {
+        slideOutAndSwitch("login_view.fxml", sidedoor, container, false); // Slide out to the right
     }
 
-    private void slidePaneToLeft() {
-        TranslateTransition slide = new TranslateTransition(Duration.millis(500), sidedoor);
-        slide.setByX(-sidedoor.getWidth()); // Slide to the left
-        slide.setInterpolator(Interpolator.EASE_BOTH);
-        slide.play();
-
-        // Add a listener to execute actions after the slide is complete
-        slide.setOnFinished(event -> {
-            // Get the current stage and scene
-            Stage stage = (Stage) sidedoor.getScene().getWindow();
-            try {
-                Parent newRoot = FXMLLoader.load(getClass().getResource("staffLogin_view.fxml"));
-                Scene newScene = new Scene(newRoot);
-                stage.setScene(newScene);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-    }
-
-    public void switchStaff(ActionEvent event) throws Exception {
-        slidePaneToLeft(); // Slide sidedoor to the left
+    @FXML
+    public void switchStaff(ActionEvent event) {
+        slideOutAndSwitch("staffLogin_view.fxml", sidedoor, container, true); // Slide out to the left
     }
 }
