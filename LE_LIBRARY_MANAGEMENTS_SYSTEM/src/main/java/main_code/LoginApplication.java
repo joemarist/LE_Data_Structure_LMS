@@ -6,15 +6,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.scene.image.Image;
 
 public class LoginApplication extends Application {
 
     @Override
     public void start(Stage Stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("login_view.fxml"));
-        Scene scene = new Scene(root);
-        Stage.setScene(scene);
+
         Stage.setTitle("LMS!");
+        Image icon = new Image(getClass().getResource("icons/icon_LMS.png").toExternalForm());
+        Stage.getIcons().add(icon);
+
+        Stage.setScene(new Scene(root));
         Stage.initStyle(StageStyle.TRANSPARENT);
         Stage.show();
     }
