@@ -1,4 +1,4 @@
-package Main_Code;
+package main_code;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

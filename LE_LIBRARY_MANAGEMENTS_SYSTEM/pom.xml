@@ -4,10 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>mainCode</groupId>
-    <artifactId>Le_Prodject</artifactId>
+    <groupId>Main_Code</groupId>
+    <artifactId>LE_LIBRARY_MANAGEMENTS_SYSTEM</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>Le_Prodject</name>
+    <name>LE_LIBRARY_MANAGEMENTS_SYSTEM</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -133,7 +133,9 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>maincode.le_prodject/maincode.le_prodject.HelloApplication</mainClass>
+                            <mainClass>
+                                main_code.le_library_managements_system/main_code.le_library_managements_system.HelloApplication
+                            </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

@@ -1,4 +1,4 @@
-module Main_Code {
+module main_code {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
@@ -12,7 +12,7 @@ module Main_Code {
     requires com.almasb.fxgl.all;
 
 
-    opens Main_Code to javafx.fxml;
-    exports Main_Code;
+    opens main_code to javafx.fxml;
+    exports main_code;
 
 }
