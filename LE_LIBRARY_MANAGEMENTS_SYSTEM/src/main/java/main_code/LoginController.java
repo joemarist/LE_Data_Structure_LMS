@@ -79,6 +79,29 @@ public class LoginController {
         isPasswordVisible = !isPasswordVisible;
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+    @FXML
+    private AnchorPane sidedoor;
+
+
+
+
+
+
+
+
+
     public void switchLogin(ActionEvent event) throws Exception {
         // Get the current stage and scene
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

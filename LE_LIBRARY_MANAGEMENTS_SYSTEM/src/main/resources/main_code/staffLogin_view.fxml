@@ -21,7 +21,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </TextField>
-      <AnchorPane layoutY="-152.0" prefHeight="813.0" prefWidth="425.0" rotate="14.0" styleClass="iconCB">
+      <AnchorPane fx:id="sidedoor" layoutY="-152.0" prefHeight="813.0" prefWidth="425.0" rotate="14.0" styleClass="iconCB">
          <children>
             <ImageView fitHeight="706.0" fitWidth="486.0" layoutX="-84.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
                <image>
