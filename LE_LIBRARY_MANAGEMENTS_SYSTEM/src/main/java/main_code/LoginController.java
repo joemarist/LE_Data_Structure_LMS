@@ -102,33 +102,45 @@ public class LoginController {
 
 
     private void slideOutAndSwitch(String fxmlFile, Node slidingPane, Node currentNode, boolean slideLeft) {
-        // Use layout bounds to get the width of the slidingPane
+        // Get the width of the slidingPane
         double paneWidth = slidingPane.getLayoutBounds().getWidth();
 
         // Create a slide-out transition
         TranslateTransition slideOut = new TranslateTransition(Duration.millis(500), slidingPane);
-        slideOut.setByX(slideLeft ? -paneWidth : paneWidth); // Slide left or right based on the direction
+        slideOut.setByX(slideLeft ? -paneWidth : paneWidth); // Slide left or right based on direction
         slideOut.setInterpolator(Interpolator.EASE_BOTH);
 
-        // Set an event listener for after the slide finishes
+        // Create a fade-out effect for the sliding pane
+        FadeTransition fadeOut = new FadeTransition(Duration.millis(500), slidingPane);
+        fadeOut.setToValue(0); // Fade out to transparency
+
+        // Play both transitions together
         slideOut.setOnFinished(event -> {
             try {
-                // Load the new FXML file
+                // Set the sliding pane to its final position (off-screen)
+                slidingPane.setTranslateX(slideLeft ? -paneWidth : paneWidth);
+
+                // Make `setframe` visible with a fade-in effect
+                setframe.setVisible(true);
+                FadeTransition fadeIn = new FadeTransition(Duration.millis(500), setframe);
+                fadeIn.setFromValue(0); // Start fully transparent
+                fadeIn.setToValue(1);   // End fully opaque
+                fadeIn.play();
+
+                // Optionally load the new scene (if required)
                 Parent newRoot = FXMLLoader.load(getClass().getResource(fxmlFile));
-
-                // Get the current stage
-                Stage stage = (Stage) currentNode.getScene().getWindow();
-
-                // Set the new scene
                 Scene newScene = new Scene(newRoot);
+                Stage stage = (Stage) currentNode.getScene().getWindow();
                 stage.setScene(newScene);
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
 
-        // Play the slide-out animation
+        // Play both slide and fade animations
         slideOut.play();
+        fadeOut.play();
     }
 
     @FXML
