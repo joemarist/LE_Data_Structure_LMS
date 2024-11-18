@@ -88,16 +88,16 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <PasswordField fx:id="passwordtextfield" layoutX="105.0" layoutY="268.0" prefHeight="34.0" prefWidth="232.0" promptText="Password" styleClass="textFrame" stylesheets="@styleFile/staffLogin.css">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </PasswordField>
             <TextField fx:id="passwordTextVisible" layoutX="105.0" layoutY="268.0" prefHeight="39.0" prefWidth="232.0" promptText="Password" styleClass="textFrame" stylesheets="@styleFile/staffLogin.css">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </TextField>
+            <PasswordField fx:id="passwordtextfield" layoutX="105.0" layoutY="268.0" prefHeight="34.0" prefWidth="232.0" promptText="Password" styleClass="textFrame" stylesheets="@styleFile/staffLogin.css">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </PasswordField>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="921.0" layoutY="13.0" minHeight="17.0" minWidth="26.0" onMouseClicked="#switchLogin" prefHeight="24.0" prefWidth="36.0" styleClass="tag" stylesheets="@styleFile/LoginSyle.css">

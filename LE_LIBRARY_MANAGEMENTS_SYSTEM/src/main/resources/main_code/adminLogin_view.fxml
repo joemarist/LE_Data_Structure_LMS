@@ -70,16 +70,16 @@
             </TextField>
             <Line endX="131.8291015625" endY="-8.78497314453125" layoutX="-34.0" layoutY="206.0" startX="131.8291015625" startY="-38.78497314453125" stroke="#818080" strokeLineCap="ROUND" strokeWidth="4.0" />
             <Line endX="131.8291015625" endY="-8.78497314453125" layoutX="-34.0" layoutY="311.0" startX="131.8291015625" startY="-38.78497314453125" stroke="#818080" strokeLineCap="ROUND" strokeWidth="4.0" />
-            <PasswordField fx:id="passwordtextfield" layoutX="105.0" layoutY="268.0" prefHeight="34.0" prefWidth="232.0" promptText="Password" styleClass="textFrame" stylesheets="@styleFile/staffLogin.css">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </PasswordField>
             <TextField fx:id="passwordTextVisible" layoutX="105.0" layoutY="268.0" prefHeight="39.0" prefWidth="232.0" promptText="Password" styleClass="textFrame" stylesheets="@styleFile/staffLogin.css">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </TextField>
+            <PasswordField fx:id="passwordtextfield" layoutX="105.0" layoutY="268.0" prefHeight="34.0" prefWidth="232.0" promptText="Password" styleClass="textFrame" stylesheets="@styleFile/staffLogin.css">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </PasswordField>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="adminside" layoutX="504.0" layoutY="-94.0" prefHeight="825.0" prefWidth="589.0" rotate="10.0" styleClass="iconCB">
