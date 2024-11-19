@@ -24,15 +24,23 @@ public class LoginApplication extends Application {
         LoginController controller = loader.getController();
         Scene scene = new Scene(root);
 
-        scene.setOnKeyPressed(event -> {
-            if (event.isControlDown() && event.isShiftDown() && event.getCode() == KeyCode.S) {
+
+            scene.setOnKeyPressed(event -> {
+                if (event.isControlDown() && event.isShiftDown() && event.getCode() == KeyCode.S) {
                     try {
+
                         controller.adminLogin(event);
+                        if(controller.getCount() > 0) {
+                            controller.setCount(2);
+                        }else if(controller.getCount() < 0){
+                            controller.setCount(0);
+                        }
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
-            }
-        });
+                }
+            });
+
 
         stage.setScene(scene);
         stage.initStyle(StageStyle.TRANSPARENT);

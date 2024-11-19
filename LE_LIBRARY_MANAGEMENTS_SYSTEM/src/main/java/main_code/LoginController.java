@@ -20,6 +20,20 @@ import java.io.IOException;
 
 public class LoginController {
 
+    private int count = 0;
+
+    // Getter for count
+    public int getCount() {
+        return count;
+    }
+
+    // Setter for count
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    //@FXML=======================================================================================================================================================================================
+
     @FXML
     private AnchorPane adminRoot;
     @FXML
@@ -83,7 +97,9 @@ public class LoginController {
 
     @FXML
     private void switchLogin(ActionEvent event) throws IOException {
-        // Load the new scene (login_view.fxml)
+
+        setCount(0);
+
         Parent root = FXMLLoader.load(getClass().getResource("login_view.fxml"));
 
         // Get the current scene and its width
@@ -120,8 +136,111 @@ public class LoginController {
         System.out.println("Exit Node: " + exit);
         System.out.println("Login Root: " + loginRoot);
     }
+
+
+//Login_STAFF=======================================================================================================================================================================================
+
+    public void switchStaff(ActionEvent event) throws IOException {
+
+        setCount(2);
+
+        Parent root = FXMLLoader.load(getClass().getResource("staffLogin_view.fxml"));
+        Scene currentScene = ((Node) event.getSource()).getScene();
+        double sceneWidth = currentScene.getWidth();
+
+        root.translateXProperty().set(sceneWidth);
+        loginRoot.getChildren().add(root);
+
+        Timeline timeline = new Timeline();
+        KeyValue kvIn = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_BOTH);
+        KeyFrame kfIn = new KeyFrame(Duration.seconds(0.6), kvIn);
+        timeline.getKeyFrames().add(kfIn);
+
+        timeline.setOnFinished(t -> {
+            Node container = loginRoot.getChildren().get(0);
+            loginRoot.getChildren().remove(container);
+        });
+
+        timeline.play();
+    }
+
+//Login_USER=======================================================================================================================================================================================
+
+    @FXML
+    public void switchUser(ActionEvent event) throws IOException {
+
+        setCount(2);
+
+        Parent root = FXMLLoader.load(getClass().getResource("userLogin_view.fxml"));
+
+        // Get the current scene and its width
+        Scene currentScene = ((Node) event.getSource()).getScene();
+        double sceneWidth = currentScene.getWidth();
+
+        // Set initial position of the new root off-screen to the right
+        root.translateXProperty().set(sceneWidth);
+
+        // Add the new root to the container
+        loginRoot.getChildren().add(root);
+
+        // Create the animation timeline
+        Timeline timeline = new Timeline();
+        KeyValue kvIn = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_BOTH);
+        KeyFrame kfIn = new KeyFrame(Duration.seconds(0.6), kvIn);
+        timeline.getKeyFrames().add(kfIn);
+
+        // When the animation finishes
+        timeline.setOnFinished(t -> {
+            Node container = loginRoot.getChildren().get(0); // Get the old scene
+            loginRoot.getChildren().remove(container);      // Remove the old scene
+        });
+
+        // Play the animation
+        timeline.play();
+    }
+
+//Login_ADMIN=======================================================================================================================================================================================
+
+    @FXML
+    void adminLogin(KeyEvent event) throws IOException {
+        if (getCount() != 1) {
+            setCount(2);
+
+            // Load the new scene (admin login view)
+            Parent newRoot = FXMLLoader.load(getClass().getResource("adminLogin_view.fxml"));
+
+            // Set the initial position of the new root off-screen (to the left)
+            newRoot.translateXProperty().set(-loginRoot.getWidth());
+
+            // Add the new root to the parent container
+            loginRoot.getChildren().add(newRoot);
+
+            // Create timeline animations for both scenes
+            Timeline timeline = new Timeline();
+
+            // Slide out the current scene (move it to the right)
+            Node currentScene = loginRoot.getChildren().get(0); // Assume the first child is the current scene
+            KeyValue slideOutCurrent = new KeyValue(currentScene.translateXProperty(), loginRoot.getWidth(), Interpolator.EASE_BOTH);
+
+            // Slide in the new scene (move it to the center)
+            KeyValue slideInNew = new KeyValue(newRoot.translateXProperty(), 0, Interpolator.EASE_BOTH);
+
+            // Combine animations into a single keyframe
+            KeyFrame keyFrame = new KeyFrame(Duration.seconds(0.6), slideOutCurrent, slideInNew);
+            timeline.getKeyFrames().add(keyFrame);
+
+            // Remove the old scene after the animation completes
+            timeline.setOnFinished(t -> loginRoot.getChildren().remove(currentScene));
+
+            // Play the animation
+            timeline.play();
+        }
+    }
+
     @FXML
     public void switchLogins(ActionEvent event) throws IOException {
+
+        setCount(0);
 
         Parent root = FXMLLoader.load(getClass().getResource("login_view.fxml"));
 
@@ -163,96 +282,4 @@ public class LoginController {
         timeline.play();
 
     }
-
-//Login_STAFF=======================================================================================================================================================================================
-
-    public void switchStaff(ActionEvent event) throws IOException {
-
-        Parent root = FXMLLoader.load(getClass().getResource("staffLogin_view.fxml"));
-        Scene currentScene = ((Node) event.getSource()).getScene();
-        double sceneWidth = currentScene.getWidth();
-
-        root.translateXProperty().set(sceneWidth);
-        loginRoot.getChildren().add(root);
-
-        Timeline timeline = new Timeline();
-        KeyValue kvIn = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_BOTH);
-        KeyFrame kfIn = new KeyFrame(Duration.seconds(0.6), kvIn);
-        timeline.getKeyFrames().add(kfIn);
-
-        timeline.setOnFinished(t -> {
-            Node container = loginRoot.getChildren().get(0);
-            loginRoot.getChildren().remove(container);
-        });
-
-        timeline.play();
-    }
-
-//Login_USER=======================================================================================================================================================================================
-
-    @FXML
-    public void switchUser(ActionEvent event) throws IOException {
-        // Load the new scene
-        Parent root = FXMLLoader.load(getClass().getResource("userLogin_view.fxml"));
-
-        // Get the current scene and its width
-        Scene currentScene = ((Node) event.getSource()).getScene();
-        double sceneWidth = currentScene.getWidth();
-
-        // Set initial position of the new root off-screen to the right
-        root.translateXProperty().set(sceneWidth);
-
-        // Add the new root to the container
-        loginRoot.getChildren().add(root);
-
-        // Create the animation timeline
-        Timeline timeline = new Timeline();
-        KeyValue kvIn = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_BOTH);
-        KeyFrame kfIn = new KeyFrame(Duration.seconds(0.6), kvIn);
-        timeline.getKeyFrames().add(kfIn);
-
-        // When the animation finishes
-        timeline.setOnFinished(t -> {
-            Node container = loginRoot.getChildren().get(0); // Get the old scene
-            loginRoot.getChildren().remove(container);      // Remove the old scene
-        });
-
-        // Play the animation
-        timeline.play();
-    }
-
-//Login_ADMIN=======================================================================================================================================================================================
-
-    @FXML
-    void adminLogin(KeyEvent event) throws IOException {
-        // Load the new scene (admin login view)
-        Parent newRoot = FXMLLoader.load(getClass().getResource("adminLogin_view.fxml"));
-
-        // Set the initial position of the new root off-screen (to the left)
-        newRoot.translateXProperty().set(-loginRoot.getWidth());
-
-        // Add the new root to the parent container
-        loginRoot.getChildren().add(newRoot);
-
-        // Create timeline animations for both scenes
-        Timeline timeline = new Timeline();
-
-        // Slide out the current scene (move it to the right)
-        Node currentScene = loginRoot.getChildren().get(0); // Assume the first child is the current scene
-        KeyValue slideOutCurrent = new KeyValue(currentScene.translateXProperty(), loginRoot.getWidth(), Interpolator.EASE_BOTH);
-
-        // Slide in the new scene (move it to the center)
-        KeyValue slideInNew = new KeyValue(newRoot.translateXProperty(), 0, Interpolator.EASE_BOTH);
-
-        // Combine animations into a single keyframe
-        KeyFrame keyFrame = new KeyFrame(Duration.seconds(0.6), slideOutCurrent, slideInNew);
-        timeline.getKeyFrames().add(keyFrame);
-
-        // Remove the old scene after the animation completes
-        timeline.setOnFinished(t -> loginRoot.getChildren().remove(currentScene));
-
-        // Play the animation
-        timeline.play();
-    }
-
 }
