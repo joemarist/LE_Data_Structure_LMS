@@ -2,7 +2,6 @@ module main_code {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
-
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires net.synedra.validatorfx;
@@ -13,6 +12,8 @@ module main_code {
 
 
     opens main_code to javafx.fxml;
-    exports main_code;
 
+    exports main_code; // Ensure the package is exported
 }
+
+
